@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Did we adopt our pets for their looks? No. Will they be judged by them? Yes.</h2>
+<h1>Who's cuter? Click to choose.</h1>
+<!-- Here is where we'll fill the functionality of choosing between two animals-->
+
+<p>
+    {% set random_docs = get_random_docs() %}
+    {% for doc in random_docs %}
+    <div class = "image-container">
+        <hr class="solid"> <!-- Idea: instad of redudantly looping here we could disply the picture one by one-->
+            {{ doc.index }}
+            {{ doc.name}}
+
+            {% if doc.links %}
+                <br>
+                <img src="{{ doc.links }}" alt="Random image of animal">
+            {% endif %}
+    </div>
+    {% endfor %}
+</p>
+
+{% endblock %}

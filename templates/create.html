@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Create</h2>
+<p>Add your animal to the database</p>
+<form method="POST" action="{{ url_for('create_post') }}">
+  <p>Name of the animal: <input type="text" id="fname" name="fname" /><br /></p>
+  <p>Animal image URL: <input type="text" id="flink" name="flink" /><br /></p>
+  <p>
+    <input type="submit" name="post-btn" value="Post" />
+  </p>
+</form>
+{% endblock %}

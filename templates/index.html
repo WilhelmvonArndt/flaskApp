@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Did we adopt our pets for their looks? No. Will they be judged by them? Yes.</h2>
+<h1>Who's cuter? Click to choose.</h1>
+<!-- Here is where we'll fill the functionality of choosing between two animals-->
+<!-- <div class="image-container">
+    {% set random_docs = get_random_docs() %}
+    {% for doc in random_docs %}
+        {% if doc.links %}
+            <div class="image">
+                <p>{{ doc.name }}</p>
+                <a href="{{ url_for('vote_animal', mongoid=doc._id) }}">
+                <img src="{{ doc.links }}" alt="Random image of animal">
+                </a>
+                
+            </div>
+        {% endif %}
+    {% endfor %}
+</div> -->
+
+<div class="image-container">
+    {% set doc1, doc2 = get_random_docs() %}
+    {% if doc1.links %}
+        <div class="image">
+            <p>{{ doc1.name }}</p>
+            <a href="{{ url_for('vote_animal', mongoid=doc1._id) }}">
+            <img src="{{ doc1.links }}" alt="Random image of animal">
+            </a>
+        </div>
+    {% endif %}
+    <p>OR</p>
+    {% if doc2.links %}
+        <div class="image">
+            <p>{{ doc2.name }}</p>
+            <a href="{{ url_for('vote_animal', mongoid=doc2._id) }}">
+            <img src="{{ doc2.links }}" alt="Random image of animal">
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

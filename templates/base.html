@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ANIMALMASH</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  
+
+  <body>
+  <div class = "top_style"> 
+    <a href="{{ url_for('home')}}"><h1>ANIMALMASH</h1></a>
+  </div>
+    <div class="container">
+      <!-- <header>
+        <p>
+          <a href="{{ url_for('home')}}">Home</a> |
+          <a href="{{ url_for('read')}}">Cutest Animals</a> | List of the animals with the most votes
+          <a href="{{ url_for('create')}}">Create a post</a>
+        </p>
+      </header> -->
+      <main>{% block container %} {% endblock %}</main> <!-- Above this lies header, below footer-->
+      <footer>
+          <a href="{{ url_for('home')}}">Home</a>
+          <a href="{{ url_for('about')}}">About</a>
+          <a href="{{ url_for('create')}}">Submit</a>
+          <a href="{{ url_for('rankings')}}">Rankings</a>
+      </footer>
+    </div>
+  </body>
+</html>

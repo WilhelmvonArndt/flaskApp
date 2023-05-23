@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Top 5 Cutest Animals</h2>
+<!-- Here is where we'll display the rankings -->
+<div>
+    {% set rankings = get_rankings() %}
+    {% for ranking in rankings %}
+        <div>
+            <img src="{{ ranking.link }}" alt="Image of cute animal">
+            <p>{{ ranking.count }} votes</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
